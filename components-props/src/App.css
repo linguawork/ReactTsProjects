@@ -1,0 +1,17 @@
+.app{
+    background-color: beige;
+    border: black 5px solid;
+    /* color: blue; */
+}
+
+
+.header1{
+    background-color: gold;
+    border: blue 2px dotted;
+    /* color: blue; */
+}
+
+/* .card{
+    color: blue;
+    background-color: yellow;
+} */

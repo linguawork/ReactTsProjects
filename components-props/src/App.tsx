@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import './App.css';
+import './App.css';
 
 
 //variant 3
@@ -19,6 +19,7 @@ function Card({personName}:Name){
   
 }
 
+
 //variant 1
 // function Card({personName}:{personName:string}){
 //   return <h1>{personName}</h1>
@@ -26,15 +27,47 @@ function Card({personName}:Name){
 // }
 
 
+type AnotherWayOfProps= {
+  videoname: string, 
+  videonumber: number
+
+}
+
+function NewComponent({videoname, videonumber}: AnotherWayOfProps){
+
+  return (
+  <div>
+        <h2>AnotherVideo :{videoname}</h2>
+      <h2>Another link :{videonumber} </h2>
+  </div>
+
+
+    
+
+  )
+  
+
+}
+
+
+
+
 function App() {
   return (
-    <div>
+    <div className='app'>
 
-        <h1>
-          Test!
-        </h1>
+      <h1 className='header1'>
+        Test!
+      </h1>
+      <a href="https://www.youtube.com/watch?v=XxV395LzRTk">React.FC</a>
+      <br/>
+      <a href="https://www.youtube.com/watch?v=WhpdzVnuofI&list=PLYlfM6qKBI5gHd6qevYUWQfL-TAWp5NW6&index=3">Props in ReactTs</a>
+  
+      {/* the first component */}
+        <Card personName="Darwin"/>
 
-    <Card personName="Darwin"/>
+      {/* the second component */}
+        <NewComponent videoname='another video' videonumber={11} />
     </div>
 
   );
