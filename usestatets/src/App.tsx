@@ -33,12 +33,16 @@ function App() {
   return (
     //create User password form
     <div className="App">
+
       <h3>User</h3>
       {/* если навести на е в функции то можно увидеть тип,
        это как подсказка для правильной типизации  event */}
       <input type="text" onChange={(e) => setUserName(e)} />
       <h3>Password</h3>
       <input type="text" onChange={(e) => setUserPass(e) }/>
+      <br />
+      <br />
+       <a href="https://www.youtube.com/watch?v=arh6TCfWOWY&list=PLYlfM6qKBI5gHd6qevYUWQfL-TAWp5NW6&index=4" target='blank'>Press to see the tutorial</a>
     </div>
   );
 }
