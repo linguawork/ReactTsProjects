@@ -20,6 +20,10 @@ https://www.youtube.com/watch?v=bmfQCxwoFl0&t=749s (incomplete)
 
 
 Component Composition: Learn how to use props to compose multiple components and ensure they work seamlessly together with type checking.
+
+Remember. If you can be without state management library, then do not use it. Here is the video: https://www.youtube.com/watch?v=VenLRGHx3D4
+to explain
+
 State Management Libraries (Intro to Zustand or Redux): Get familiar with typing Redux actions and reducers if you’re using Redux.
  Zustand can be easier to get started with, as it’s lighter and requires fewer initial setup steps.
 
