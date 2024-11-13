@@ -1,0 +1,6 @@
+.user_card{
+    border: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 8px;
+    max-width: 300px 
+}
