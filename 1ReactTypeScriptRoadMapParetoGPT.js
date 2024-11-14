@@ -11,10 +11,16 @@ https://www.youtube.com/watch?v=WhpdzVnuofI&list=PLYlfM6qKBI5gHd6qevYUWQfL-TAWp5
 
 
 2. Props and State Management (25%)
-Typing Props and State: Practice typing simple props, children props, and states in functional components.
+Typing Props and State: Practice typing simple props, 
+
+children props: https://www.youtube.com/watch?v=eP4qtu4IsGE
+https://www.youtube.com/watch?v=-FRGDF5gCjc
+
+and states in functional components.
 
 Props(https://www.youtube.com/watch?v=WhpdzVnuofI&list=PLYlfM6qKBI5gHd6qevYUWQfL-TAWp5NW6&index=3)
 https://www.youtube.com/watch?v=XxV395LzRTk
+
 
 https://www.youtube.com/watch?v=bmfQCxwoFl0&t=749s (incomplete)
 
