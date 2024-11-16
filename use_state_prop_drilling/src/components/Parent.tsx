@@ -1,32 +1,34 @@
 
 import React, { useState } from "react";
 
+type ButtonProps = {
 
-// const Button1 =( counter, increment()) => {
-
-//     function increment(){
-//         setState(prevState => prevState + 1)
-//     }
-//     return (
-//         <button>
-//             counter: {counter}
-//         </button>
-//     )
-
-// }
-
-
-type ParentProps = {
-    counter: number
-    // increment: ()=>void, 
+    increment:()=> void, 
+    //children needed to write in
+    children: React.ReactNode
     // decrement: ()=>void
 }
 
-const Parent = ({counter}: ParentProps) =>{
+
+const Button1 =( { increment, children}: ButtonProps) => {
+
+    return (
+        <button onClick={increment}>
+            {children}
+        </button>
+    )
+
+}
+
+
+
+//parent does not need props
+const Parent = () =>{
 
     //parent will have the hook
     const [count, setCounter] = useState(0)
 
+    //parent will have the function definition
     function increment(){
         setCounter(
             prev=> prev+1
@@ -34,13 +36,13 @@ const Parent = ({counter}: ParentProps) =>{
     }
 
     return (
-
-        //two buttons that will increment and decrement
-        // <Button1 counter={counter} onClick = increment() />
-
-        <button onClick={increment}>
-            counter: {count}
-        </button> 
+        //self made components should be wrapped inside an html tag
+    <div>
+            {/* //here we write exactly the same names of props and assign values from parent */}
+            <Button1  increment={increment}>
+                Counter: {count}
+            </Button1> 
+    </div>
 
     )
 

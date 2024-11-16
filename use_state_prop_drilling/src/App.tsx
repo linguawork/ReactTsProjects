@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <h1> THIS THE EXERCISE TO USE USESTATE HOOK AND PROP DRILLING</h1>
       
-      <Parent counter = {0}/>
+      <Parent />
 
     </div>
   );
