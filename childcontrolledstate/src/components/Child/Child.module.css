@@ -1,0 +1,7 @@
+.btn:hover{
+    /* width: 100px;
+    height: 500px;
+    color: green; */
+
+    transform: scale(1.2);
+}

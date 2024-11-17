@@ -20,13 +20,13 @@ import './App.css';
 
 interface CounterProps {
   count: number;
-  onIncrement: () => void;
+  functionTemplate: () => void;
 }
 
-const Counter: React.FC<CounterProps> = ({ count, onIncrement }) => (
+const Counter: React.FC<CounterProps> = ({ count, functionTemplate }) => (
   <div>
     <p>Count: {count}</p>
-    <button onClick={onIncrement}>Increment</button>
+    <button onClick={functionTemplate}>Increment</button>
   </div>
 );
 
@@ -41,7 +41,7 @@ const ParentComponent = () => {
   
   const handleIncrement = () => setCount(count + 1);
   
-  return <Counter count={count} onIncrement={handleIncrement} />;
+  return <Counter count={count} functionTemplate={handleIncrement} />;
 };
 
 //export default ParentComponent;
