@@ -33,6 +33,14 @@ to explain
 State Management Libraries (Intro to Zustand or Redux): Get familiar with typing Redux actions and reducers if you’re using Redux.
  Zustand can be easier to get started with, as it’s lighter and requires fewer initial setup steps.
 
+
+Zustand: 
+https://www.npmjs.com/package/zustand
+https://egghead.io/q?access_state=free&q=Zustand 
+https://dev.to/ricardogesteves/zustand-when-how-and-why-1kpi#introduction-to-state-management
+(good article)
+
+
 3. Hooks with TypeScript (30%)
 useState, useEffect, and useContext: Learn to type useState with different data types (e.g., objects, arrays), handle effects correctly, and use context with TypeScript.
 Custom Hooks: Try writing simple custom hooks, typing them so they’re reusable across components.
@@ -45,3 +53,6 @@ By focusing on these 20% of topics, you’ll cover a substantial portion of Reac
  This foundational knowledge will also make it much easier to learn and apply advanced topics when needed.
 
  */
+
+
+
