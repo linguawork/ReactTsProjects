@@ -57,10 +57,21 @@ react-redux: The official library to connect Redux with React.
 
 
 A command for typisation of Redux:
+(old and deprecated)
 ```
 npm install @types/react-redux
 ```
+to uninstall run:
+```
+npm uninstall @types/react-redux
+```
 
+
+current approach (it has builtin TS support):
+```
+npm install @reduxjs/toolkit
+
+```
 
 
 Optional - Install Redux Toolkit. \

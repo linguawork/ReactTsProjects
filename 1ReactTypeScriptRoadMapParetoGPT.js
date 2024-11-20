@@ -53,7 +53,15 @@ https://www.youtube.com/watch?v=Dzzeir85i3c
 https://www.youtube.com/watch?v=ldgnmiPIftw
 
 Video on Redux typization: 
-https://youtube.com/watch?v=vFhiS6__ARE
+https://www.youtube.com/watch?v=WpvIihorarA
+(This one is better)
+
+https://youtube.com/watch?v=vFhiS6__ARE (not a good explanation 
+with reference to the prev video)
+
+resources:
+https://trello.com/b/R6rD7qq8/webdev-youtube-channel 
+(Евгений Ковальчук. его видео уроки и карта видеоуроков по темам)
 
 
 
