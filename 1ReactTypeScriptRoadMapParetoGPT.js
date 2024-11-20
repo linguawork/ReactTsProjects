@@ -40,6 +40,12 @@ https://egghead.io/q?access_state=free&q=Zustand
 https://dev.to/ricardogesteves/zustand-when-how-and-why-1kpi#introduction-to-state-management
 (good article)
 
+https://reactresources.com/people/jared-palmer
+
+Redux:
+https://www.youtube.com/watch?v=5Qtqzeh5FeM
+https://www.youtube.com/watch?v=Dzzeir85i3c
+https://www.youtube.com/watch?v=ldgnmiPIftw
 
 3. Hooks with TypeScript (30%)
 useState, useEffect, and useContext: Learn to type useState with different data types (e.g., objects, arrays), handle effects correctly, and use context with TypeScript.
