@@ -43,6 +43,9 @@ https://dev.to/ricardogesteves/zustand-when-how-and-why-1kpi#introduction-to-sta
 https://reactresources.com/people/jared-palmer
 
 Redux:
+https://react-redux.js.org/introduction/getting-started
+https://www.geeksforgeeks.org/react-redux-hooks-useselector-and-usedispatch/
+
 https://www.youtube.com/watch?v=5Qtqzeh5FeM
 https://www.youtube.com/watch?v=Dzzeir85i3c
 https://www.youtube.com/watch?v=ldgnmiPIftw
