@@ -43,12 +43,20 @@ https://dev.to/ricardogesteves/zustand-when-how-and-why-1kpi#introduction-to-sta
 https://reactresources.com/people/jared-palmer
 
 Redux:
+resources
 https://react-redux.js.org/introduction/getting-started
 https://www.geeksforgeeks.org/react-redux-hooks-useselector-and-usedispatch/
 
+Ulbi channel:
 https://www.youtube.com/watch?v=5Qtqzeh5FeM
 https://www.youtube.com/watch?v=Dzzeir85i3c
 https://www.youtube.com/watch?v=ldgnmiPIftw
+
+Video on Redux typization: 
+https://youtube.com/watch?v=vFhiS6__ARE
+
+
+
 
 3. Hooks with TypeScript (30%)
 useState, useEffect, and useContext: Learn to type useState with different data types (e.g., objects, arrays), handle effects correctly, and use context with TypeScript.

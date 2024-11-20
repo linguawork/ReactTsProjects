@@ -52,11 +52,19 @@ After creating a folder with react ts project, run:
 ```
 npm install redux react-redux
 ```
-redux: The core Redux library for managing state.
+redux: The core Redux library for managing state.\
 react-redux: The official library to connect Redux with React.
 
 
-Optional - Install Redux Toolkit If you're using Redux Toolkit (recommended), install it as well:
+A command for typisation of Redux:
+```
+npm install @types/react-redux
+```
+
+
+
+Optional - Install Redux Toolkit. \
+ If you're using Redux Toolkit (recommended), install it as well:
 ```
 npm install @reduxjs/toolkit
 ```
