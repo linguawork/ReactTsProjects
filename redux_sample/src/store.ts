@@ -1,7 +1,11 @@
-// import { createStore } from 'redux';
-//this is deprecated
-// now this is used:
-// import { configureStore } from '@reduxjs/toolkit';
+/* 
+import { createStore } from 'redux';
+this is deprecated
+now this is used:
+import { configureStore } from '@reduxjs/toolkit';
+
+
+*/
 
 import { configureStore } from "@reduxjs/toolkit"
 
