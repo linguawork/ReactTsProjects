@@ -38,7 +38,7 @@ interface FetchUsersSuccessAction{
 
 interface FetchUsersErrorAction{
     type: UserActionTypes.FETCH_USERS_ERROR, 
-    error: string
+    payload: string 
 }
 
 //interface for action is not specific for every type of action
@@ -74,12 +74,13 @@ export const userReducer = (state = initialState, action: UserAction): userState
     // }
 
     switch(action.type){
+        //every case has a different typization thanks to TYPE - INTERFACE - ENUM model
         case UserActionTypes.FETCH_USERS:
             return {loading: true, error:null, users:[]}
         case UserActionTypes.FETCH_USERS_SUCCESS:
-            return {loading: false, error:null, users:action.payload}
+            return {loading: false, error: null, users: action.payload}
         case UserActionTypes.FETCH_USERS_ERROR:
-            return {loading: true, error:action.payload, users:[]}
+            return {loading: true, error: action.payload, users:[]}
         default:
             return state
     }
