@@ -35,3 +35,13 @@ npm i @types/react-redux redux react-redux redux-thunk axios
 ```
 
 This can be enough to work with the project folder: redux+ts+react
+
+When starting a project after cloning use:
+```
+npm i
+```
+
+if react scripts are absent, run:
+```
+npm install react-scripts@latest
+```
