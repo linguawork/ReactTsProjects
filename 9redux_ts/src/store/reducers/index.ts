@@ -6,6 +6,9 @@ import { userReducer } from "./userReducer";
 
 export const rootReducer = combineReducers(
     {
+        
+        //user который будет в хуке, которому мы передали возвращаемый тип данныч
+        //у user значение все что есть в функции userReducer
         user: userReducer
     }
 )
@@ -22,5 +25,9 @@ ReturnType<typeof rootReducer> (ссылка на ф, а не ее вызов)
 
  А новый тип RootState теперь такой же тип данных, который
  вернула  rootReducer
+
+
+ Этот тип будет использован с типизированным useSelector, 
+ который по умолчанию не работает с типами
 */
 export type RootState = ReturnType<typeof rootReducer>
