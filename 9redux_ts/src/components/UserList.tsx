@@ -3,9 +3,16 @@ import React from 'react'
 
 const UserList: React.FC =()=>{
 
-    const state = useSelector( state => state )
+
+/*
+Property 'users' does not exist on type 'DefaultRootState'.
+
+    useSelector() не работает с типами, поэтому лучше под 
+    Тайпскрипт написать свой хук
+*/  
+    const state = useSelector( state => state.users )
     console.log(state)
-    console.log('HHHHHHHHHHHHHHHHHHH')
+
 
     return (
         <div>
@@ -15,3 +22,4 @@ const UserList: React.FC =()=>{
 }
 
 export default UserList
+
