@@ -3,7 +3,7 @@
 и вместо него использовать useActions в тех куда мы его импортируем
 
 */
-//23:12
+//23:12 - 24:26
 
 import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"

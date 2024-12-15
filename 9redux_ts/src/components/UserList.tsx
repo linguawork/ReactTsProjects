@@ -13,7 +13,7 @@ const UserList: React.FC =()=>{
 Property 'users' does not exist on type 'DefaultRootState'.
 
     useSelector() не работает с типами, поэтому лучше под 
-    Тайпскрипт написать свой хук
+    Тайпскрипт написать свой хук:он по сути из документации
 */  
     // const state = useSelector( state => state.user )
 
