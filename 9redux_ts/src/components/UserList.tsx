@@ -4,6 +4,7 @@ import { useTypedSelector } from "../hooks/useTypedSelector"
 import { fetchUsers } from "../store/action-creators/user"
 
 
+//component has type: React.FC
 const UserList: React.FC =()=>{
 
 
@@ -56,7 +57,7 @@ and you will see all the contents  */
         <div>
             {users.map(
                 user=>
-                <div>{user.name}</div>
+                <div key={user.id}>{user.name}</div>
             )}
 
         </div>
@@ -64,6 +65,5 @@ and you will see all the contents  */
 }
 
 export default UserList
-
 
 

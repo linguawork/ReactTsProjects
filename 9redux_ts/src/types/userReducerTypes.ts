@@ -20,7 +20,7 @@ export enum UserActionTypes{
 }
 
 interface FetchUsersAction{
-    type: UserActionTypes.FETCH_USERS
+    type: UserActionTypes.FETCH_USERS //we pass this directly into dispatch method
 }
 
 interface FetchUsersSuccessAction{
