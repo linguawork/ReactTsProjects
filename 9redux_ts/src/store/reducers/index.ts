@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import { userReducer } from "./userReducer";
+import { todoReducer } from "./todoRecuder";
 
 
 
@@ -9,7 +10,8 @@ export const rootReducer = combineReducers(
         
         //user который будет в хуке, которому мы передали возвращаемый тип данныч
         //у user значение все что есть в функции userReducer
-        user: userReducer
+        user: userReducer,
+        todo: todoReducer
     }
 )
 
