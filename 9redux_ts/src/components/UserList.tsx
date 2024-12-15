@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import React, { useEffect } from 'react'
 import { useTypedSelector } from "../hooks/useTypedSelector"
 import { fetchUsers } from "../store/action-creators/user"
+import { useActions } from "../hooks/useActions"
 
 
 //component has type: React.FC
@@ -32,12 +33,18 @@ and you will see all the contents  */
     const {error, loading, users} = useTypedSelector( state => state.user )
 
     // console.log(state)
-    const dispatch = useDispatch()
+
+    //this dispatch is not used, when useActions is used
+    // const dispatch = useDispatch()
+
+
+    const {fetchUsers} = useActions()
 
     //executed func + [dependency]
     useEffect(
         ()=>{
-            dispatch(fetchUsers())
+            //dispatch(fetchUsers()), dispatch is not used, as we use useActions
+            fetchUsers()
         }, [])
 
 
