@@ -9,6 +9,9 @@ const TodoList: React.FC = () =>{
     const {page, loading, error, todos, limit} = useTypedSelector(state=>state.todo)
     const {fetchTodos} = useActions()
 
+    //adding pagination
+    const pages = [1, 2, 3, 4, 5]
+
     useEffect(
         ()=>{
             //dispatch(fetchUsers()), dispatch is not used, as we use useActions
@@ -38,6 +41,18 @@ const TodoList: React.FC = () =>{
             {todos.map( el=>
             <div key={el.id}>{el.id} - {el.title}</div>
             )}
+            <div style ={{display: 'flex'}}>
+            {/* including pagination */}
+                {
+                    pages.map( el=>
+                        <div
+                        style={{border: el === page ? '2px solid green' : '1px solid gray', padding: 10 }}
+                        >{el}</div>
+
+                    )
+                }
+            </div>
+
 
         </div>
     )
