@@ -2,12 +2,12 @@ import React from "react"
 import { useEffect } from "react"
 import { useActions } from "../hooks/useActions"
 import { useTypedSelector } from "../hooks/useTypedSelector"
-import { fetchTodos } from "../store/action-creators/todo"
+import { fetchTodos, setTodoPage } from "../store/action-creators/todo"
 
 
 const TodoList: React.FC = () =>{
     const {page, loading, error, todos, limit} = useTypedSelector(state=>state.todo)
-    const {fetchTodos} = useActions()
+    const {fetchTodos, setTodoPage} = useActions()
 
     //adding pagination
     const pages = [1, 2, 3, 4, 5]
@@ -16,7 +16,7 @@ const TodoList: React.FC = () =>{
         ()=>{
             //dispatch(fetchUsers()), dispatch is not used, as we use useActions
             fetchTodos(page, limit)
-        }, [])
+        }, [page])
 
 
     if(loading){
@@ -46,6 +46,8 @@ const TodoList: React.FC = () =>{
                 {
                     pages.map( el=>
                         <div
+                        //changing page on click
+                        onClick = {()=>setTodoPage(el)}
                         style={{border: el === page ? '2px solid green' : '1px solid gray', padding: 10 }}
                         >{el}</div>
 

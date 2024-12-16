@@ -40,7 +40,7 @@ export const fetchTodos = (page = 1, limit =10) =>{
                     https://jsonplaceholder.typicode.com/todos?_page=2&_limit=10
 
                 */
-                {params: {_page:page, _limit: limit} } )
+                {params: {_page: page, _limit: limit} } )
             
  
            setTimeout(
