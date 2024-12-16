@@ -2,6 +2,8 @@ import React from 'react';
 
 import './App.css';
 import UserList from './components/UserList';
+import TodoList from './components/TodoList';
+
 
 
 
@@ -10,6 +12,8 @@ function App() {
     <div className='App'>
         
         <UserList />
+        <hr/>
+        <TodoList/>
           
        
     </div>

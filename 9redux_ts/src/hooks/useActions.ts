@@ -9,13 +9,10 @@ import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
 
 /*
-    все что импортируется вкладывается в переменную, 
-    из которой можно вызвать через точку нужный код, например:
-    UserActionCreators.fetchUsers();
-    UserActionCreators.fetchUsersSuccess(users); (это к примеру)
-    UserActionCreators.fetchUsersError(error);
+    все actions импортируется в переменную ActionCreators, 
+    
 */
-import * as UserActionCreators from '../store/action-creators/user'
+import ActionCreators from '../store/action-creators/'
 
 //docs about useActions hook in redux: https://react-redux.js.org/api/hooks
 
@@ -27,9 +24,12 @@ this dispatch function
 export const useActions = () =>{
     const dispatch = useDispatch()
 
+    //this is to test
+    // console.log(ActionCreators)
+
 // вызываем action creators они сами прокинуться в dispatch,
 // dispatch даже не понадобится
-    return bindActionCreators(UserActionCreators, dispatch)
+    return bindActionCreators(ActionCreators, dispatch)
 }
 
 

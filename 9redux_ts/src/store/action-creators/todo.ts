@@ -13,6 +13,8 @@ import { Dispatch } from "redux"
 import axios from "axios"
 import { TodoAction, TodoActionTypes } from "../../types/todoReducerTypes"
 
+
+//Это первый фетч (Автор называет его action), который заберет себе хук useActions
 //passing page and limit
 export const fetchTodos = (page = 1, limit =10) =>{
       
@@ -60,4 +62,11 @@ export const fetchTodos = (page = 1, limit =10) =>{
 }
 
 
-//another action for changing page (32:29)
+//another action, which return an object with type, and a current page payload
+// for changing page (32:29)
+//we dont use dispatch here, as we will export it to useActions hook,
+// which will attach dispatch function
+export function setTodoPage(page: number){
+    return { type: TodoActionTypes.SET_TODO_PAGE,  payload: page } 
+
+}
