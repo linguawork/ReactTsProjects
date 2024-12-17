@@ -10,20 +10,17 @@ import { bindActionCreators } from "redux"
 
 /*
     все actions импортируется в переменную ActionCreators, 
-    
 */
 import ActionCreators from '../store/action-creators/'
-
 //docs about useActions hook in redux: https://react-redux.js.org/api/hooks
-
 
 /*
 cуть хука в том, что связываем все actionСreator functions with
 this dispatch function
 */
+
 export const useActions = () =>{
     const dispatch = useDispatch()
-
     //this is to test
     // console.log(ActionCreators)
 

@@ -7,8 +7,6 @@ to pass to Reducer
 */
 import { TodoAction, TodoActionTypes, TodoState } from "../../types/todoReducerTypes"
 
-
-
 //press ctrl+space to fill the fields
 const initialState: TodoState = {
     todos: [], 
@@ -31,7 +29,5 @@ export const todoReducer = (state = initialState, action:TodoAction): TodoState 
 
         default:
             return state
-
     }
-
 }

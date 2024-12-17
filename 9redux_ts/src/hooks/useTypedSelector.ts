@@ -10,7 +10,6 @@ https://react-redux.js.org/using-react-redux/usage-with-typescript#typing-the-us
     TypedUseSelectorHook, который импортируем из react-redux
     и ему уже присваиваем тип данных RootState, 
     который мы взяли из возвращаемого значения rootReducer
-
 */
 
 

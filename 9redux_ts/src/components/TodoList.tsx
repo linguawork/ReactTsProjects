@@ -30,12 +30,6 @@ const TodoList: React.FC = () =>{
         )
     }
 
-
-
-
-
-
-
     return (
         <div>
             {todos.map( el=>
@@ -50,12 +44,9 @@ const TodoList: React.FC = () =>{
                         onClick = {()=>setTodoPage(el)}
                         style={{border: el === page ? '2px solid green' : '1px solid gray', padding: 10 }}
                         >{el}</div>
-
                     )
                 }
             </div>
-
-
         </div>
     )
 

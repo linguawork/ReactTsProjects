@@ -8,7 +8,6 @@ import { useActions } from "../hooks/useActions"
 //component has type: React.FC
 const UserList: React.FC =()=>{
 
-
 /*
 Property 'users' does not exist on type 'DefaultRootState'.
 
@@ -17,26 +16,19 @@ Property 'users' does not exist on type 'DefaultRootState'.
 */  
     // const state = useSelector( state => state.user )
 
-/*
-Нетипизированный хук закомментили 
-*/ 
+/* Нетипизированный хук закомментили */ 
 
-
-/*
-    типизированный хук 
-*/   
+/*типизированный хук */   
 
 /*Place cursor inside desctructuring object:{} and press CTRL+space, 
 and you will see all the contents  */
 
 //это содержание userReducer
     const {error, loading, users} = useTypedSelector( state => state.user )
-
     // console.log(state)
 
     //this dispatch is not used, when useActions is used
     // const dispatch = useDispatch()
-
 
     const {fetchUsers} = useActions()
 
@@ -53,12 +45,12 @@ and you will see all the contents  */
             <h1>Loading...</h1>
         )
     }
+
     if(error){
         return(
             <h1>Loading error: {error}</h1>
         )
     }
-
 
     return (
         <div>
@@ -66,7 +58,6 @@ and you will see all the contents  */
                 user=>
                 <div key={user.id}>{user.name}</div>
             )}
-
         </div>
     )
 }
