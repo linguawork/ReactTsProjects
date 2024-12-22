@@ -17,14 +17,8 @@ However I used a different and probably old command to have the possibility to i
 npx create-react-app project_name --template typescript
 ```
 
-To additionally install redux toolkit:
-```
-npm install @reduxjs/toolkit
 
-npm install react-redux
-```
-
-Some additional scripts to help:
+Some additional scripts to help, because they may be problems with dependencies:
 
 if the tsconfig.json file is missing after installation:
 ```
@@ -49,21 +43,20 @@ or create it manually:
   },
   "include": ["src"]
 }
-
 ```
+
 ```
 npm install web-vitals
-
 ```
 
 
 ```
 npm install --save-dev @types/web-vitals
 npm install --save-dev @types/react @types/react-dom
-
 ```
-
-this is for jsx config in tsconfig.json
+\
+\
+This is for jsx config in tsconfig.json
 {
   "compilerOptions": {
     "jsx": "react-jsx",
@@ -78,7 +71,6 @@ this is for jsx config in tsconfig.json
 
 ```
 npm install --save-dev jest @types/jest
-
 ```
 
 add to tsconfig:
@@ -88,10 +80,20 @@ add to tsconfig:
     "types": ["jest", "node"]
   }
 }
-
 ```
 
 If the webvitals cause too many errors, one can just remove them from the project
+
+
+FOR REDUX:
+To additionally install redux toolkit:
+```
+npm install @reduxjs/toolkit
+
+#install react redux and ts for it:
+npm install react-redux @types/react-redux
+```
+
 
 ## Available Scripts
 
