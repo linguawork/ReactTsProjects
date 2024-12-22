@@ -94,36 +94,29 @@ import { IUser } from "../../types/IUser";
 interface UserState {
     users: IUser[],
     isLoading:boolean, 
-    error:string, 
-    count: number
+    error:string
+
 }
 
-//6:16
-const initState:UserState = {
+//12:02
+const initialState:UserState = {
     users: [],
     isLoading: false, 
-    error:' ', 
-    count: 0
+    error:' '
+
 }
 
-//ранее назывался someReducer
+//ранее назывался someReducer 
 export const userSlice = createSlice(
     {
         name: 'user', 
-        initialState: initState, 
+        initialState, 
         //каждый reducer будет, как отдельный case in switch в предыдущих версиях redux
         reducers:{
-        //типизация action: PayloadAction (imported)
-          increment(state, action: PayloadAction<number>){
-            /*action внедряется библиотекой IMMER под капотом 
-            Ни action, ни actionCreator, ни type 
-            не нужно создавать вручную как раньше, все делает редакс тулкит 
 
-            */
-            state.count += action.payload
-          }    
-        }
+        }    
     }
+    
 )
 
 /*

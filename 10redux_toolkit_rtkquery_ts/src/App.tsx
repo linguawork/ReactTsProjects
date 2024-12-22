@@ -12,11 +12,7 @@ function App() {
   //типизированный редьюсер имеет поля.
   //const {} = useAppSelector(state=>state )
 
-  //достаем нужную переменную в нужном редюсере
-  const {count} = useAppSelector(state=>state.userReducer)
 
-  //достаем функцию из редюсера (в Redux toolkit они называются Slice)
-  const {increment} = userSlice.actions
 
   //диспатч для внедрения изменеий
   const dispatch = useAppDispatch()
@@ -29,8 +25,7 @@ function App() {
       <header>
         Redux Toolkit with TS in React
       </header>
-      <h1>{count}</h1>
-      <button onClick={ () => dispatch(increment(10)) } >INCREMENT</button>
+
     </div>
   );
 }
