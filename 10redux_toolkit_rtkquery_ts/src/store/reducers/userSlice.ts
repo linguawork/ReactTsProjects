@@ -106,6 +106,7 @@ const initState:UserState = {
     count: 0
 }
 
+//ранее назывался someReducer
 export const userSlice = createSlice(
     {
         name: 'user', 

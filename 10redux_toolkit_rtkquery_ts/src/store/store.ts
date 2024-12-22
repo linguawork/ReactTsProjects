@@ -13,7 +13,7 @@ const rootReducer = combineReducers(
     }
 )
 
-
+//это будет store в Provider
 export const setupStore = () =>{
     /*
         обновленная функция createStore:
