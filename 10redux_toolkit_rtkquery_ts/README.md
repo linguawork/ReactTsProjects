@@ -104,3 +104,8 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+When creating Action Creator (fetching data from )
+need to install axios to get the data from the server:
+```
+npm i axios
+```

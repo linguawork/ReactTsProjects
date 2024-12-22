@@ -89,6 +89,7 @@ A slice in Redux Toolkit is a way to define a part of the Redux state, along wit
 
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { IUser } from "../../types/IUser";
+import { act } from "react";
 
 
 interface UserState {
@@ -111,8 +112,26 @@ export const userSlice = createSlice(
     {
         name: 'user', 
         initialState, 
-        //каждый reducer будет, как отдельный case in switch в предыдущих версиях redux
+        //каждый reducer будет иметь свою функцию, как отдельный case in switch в предыдущих версиях redux
         reducers:{
+           usersFetching(state){
+              state.isLoading =true
+           },
+           
+           //type of action: array
+           usersFetchingSuccess(state, action: PayloadAction<IUser[]>){
+              state.isLoading =false
+              state.error = ' '
+              state.users = action.payload
+
+           }, 
+           //type of action: string, 14:41
+           usersFetchingError(state, action: PayloadAction<string>){
+              state.isLoading =false
+              state.error = action.payload
+
+           }
+
 
         }    
     }
