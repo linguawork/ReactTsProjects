@@ -58,9 +58,10 @@ Explanation:
          — Redux Toolkit uses the Immer library internally, which allows this 
          "mutation" to work in an immutable way.
 
-    Reducers: The reducer functions define how the state should change in response to actions. 
+    Reducers: The reducer functions define how the state should change in response 
+     to actions. 
     The functions can access the current state and mutate it directly, 
-    thanks to Immer, which makes the code more concise and easier to manage.
+    thanks to IMMER (look at screenshots in the root, она идет под копотом в ReduxToolkit), which makes the code more concise and easier to manage.
 
     Actions: Each function defined inside reducers automatically 
     generates an action creator. You can export these action creators 
@@ -86,30 +87,54 @@ A slice in Redux Toolkit is a way to define a part of the Redux state, along wit
 
 */
 
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { IUser } from "../../types/IUser";
 
 
 interface UserState {
     users: IUser[],
     isLoading:boolean, 
-    error:string
-    
+    error:string, 
+    count: number
 }
 
 //6:16
 const initState:UserState = {
     users: [],
     isLoading: false, 
-    error:' '
+    error:' ', 
+    count: 0
 }
 
 export const userSlice = createSlice(
     {
         name: 'user', 
-        initialState, 
+        initialState: initState, 
+        //каждый reducer будет, как отдельный case in switch в предыдущих версиях redux
         reducers:{
-            
+        //типизация action: PayloadAction (imported)
+          increment(state, action: PayloadAction<number>){
+            /*action внедряется библиотекой IMMER под капотом 
+            Ни action, ни actionCreator, ни type 
+            не нужно создавать вручную как раньше, все делает редакс тулкит 
+
+            */
+            state.count += action.payload
+          }    
         }
     }
 )
+
+/*
+  The reducer exported from the slice is the default export and 
+  is used to update the state for that slice when dispatched.
+
+    In userSlice.js, export default userSlice.reducer exports the reducer as the default export from that file.
+    In another file, you import it as userReducer by using import userReducer from './reducers/userSlice'.
+    This works because you are exporting the reducer as the default from userSlice.js, and when importing, you can give it any name you want (like userReducer).
+
+  This keeps the names flexible while ensuring that the default export is correctly imported.
+*/
+
+//если экспортируем как default, то можем изменять имя при импорте
+export default userSlice.reducer;

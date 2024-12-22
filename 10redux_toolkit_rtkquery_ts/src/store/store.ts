@@ -1,18 +1,20 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
+//так как экспорт был дефолтный то можно изменять имена при импорте
+import  userReducer  from "./reducers/userSlice"; //importing without curly braces
 
 /*
-В ReduxToolkit уже необязательно использовать rootReducer
-Вместо него можно использовать просто {}
+    В ReduxToolkit уже необязательно использовать rootReducer
+    Вместо него можно использовать просто {}
 */
 const rootReducer = combineReducers(
-    {}
-
+    {
+        userReducer
+    }
 )
 
 
 export const setupStore = () =>{
-
     /*
         обновленная функция createStore:
     */
