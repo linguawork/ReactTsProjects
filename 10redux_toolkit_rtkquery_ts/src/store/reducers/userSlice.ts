@@ -89,6 +89,7 @@ A slice in Redux Toolkit is a way to define a part of the Redux state, along wit
 
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { IUser } from "../../types/IUser";
+import { fetchUsers } from "./ActionCreators";
 
 
 
@@ -109,33 +110,57 @@ const initialState:UserState = {
 
 //ранее назывался someReducer 
 export const userSlice = createSlice(
-    {
-        name: 'user', 
-        initialState, 
-        //каждый reducer будет иметь свою функцию, как отдельный case in switch в предыдущих версиях redux
-        reducers:{
-           usersFetching(state){
-              state.isLoading =true
-           },
-           
-           //type of action: array
-           usersFetchingSuccess(state, action: PayloadAction<IUser[]>){
-              state.isLoading =false
-              state.error = ' '
-              state.users = action.payload
+  {
+      name: 'user', 
+      initialState, 
+      //каждый reducer будет иметь свою функцию, как отдельный case in switch в предыдущих версиях redux
+      reducers:{
+        //  usersFetching(state){
+        //     state.isLoading =true
+        //  },
+          
+        //  //type of action: array
+        //  usersFetchingSuccess(state, action: PayloadAction<IUser[]>){
+        //     state.isLoading =false
+        //     state.error = ' '
+        //     state.users = action.payload
 
-           }, 
-           //type of action: string, 14:41
-           usersFetchingError(state, action: PayloadAction<string>){
-              state.isLoading =false
-              state.error = action.payload
+        //  }, 
+        //  //type of action: string, 14:41
+        //  usersFetchingError(state, action: PayloadAction<string>){
+        //     state.isLoading =false
+        //     state.error = action.payload
 
-           }
+          },
 
+          //adding extra reducers:{} from createAsyncThunk
+          //идёт 4 параметром в 
+      extraReducers: (builder) => {
+        builder
+          .addCase ( // type, function(state, action:type)
+            fetchUsers.pending.type, 
+            (state) => {
+                state.isLoading = true
+              }
+            ) 
+          .addCase ( // type, function(state, action:type)
+            fetchUsers.fulfilled.type, 
+            (state, action: PayloadAction<IUser[]>) => {
+              state.isLoading = false
+              state.error = ''
+                state.users = action.payload
+              }
+            )
+          .addCase ( // type, function(state, action:type)
+            fetchUsers.rejected.type, 
+            (state, action: PayloadAction<string>) => {
+              state.isLoading = false
+              state.error = action.payload //message about error
+            }
+            ) 
 
-        }    
-    }
-    
+          }    
+    }  
 )
 
 /*

@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import { useAppDispatch, useAppSelector } from './hooks/typed_hooks'
-// import in curly braces, without them there may be error:
-import { userSlice } from './store/reducers/userSlice';
-import { fetсhUsers } from './store/reducers/ActionCreators';
+import  {fetchUsers}  from './store/reducers/ActionCreators';
 
 function App() {
 
@@ -28,9 +26,9 @@ function App() {
    useEffect( 
     ()=>{
       // в основной компонент подаем все диспатчи в одной функции
-      dispatch(fetсhUsers())
+      dispatch(fetchUsers())
       // зависимость нужна чтобы у нас отрисовка была один раз только
-   }, []
+   },[]
 
    )
 

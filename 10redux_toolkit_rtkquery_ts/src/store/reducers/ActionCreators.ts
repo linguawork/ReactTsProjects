@@ -1,16 +1,13 @@
 import { IUser } from "../../types/IUser"
-import { AppDispatch } from "../store"
 import axios from 'axios'
-import {userSlice} from "./userSlice"
+
 
 
 /*
-Суть ридакс фанк
-
-позволяет прописать в коде dispatch (dispatchHook),
-не вызывая сам хук,
-и прокинуть в сторонние функции 
-
+    Суть ридакс фанк из проекта 9:
+    позволяет прописать в коде dispatch (dispatchHook),
+    не вызывая сам хук,
+    и прокинуть в сторонние функции 
 */
 
 
@@ -23,10 +20,9 @@ import {userSlice} from "./userSlice"
 // }
 
 /*
-Код выше для сравнения с redux thunk
-
-В Тулкит redux-thunk идет под капотом и его вручную подключать не надо
-
+    Код выше для сравнения с redux thunk
+    В Тулкит redux-thunk идет под капотом 
+    и его вручную подключать не надо
 */
 
 
@@ -34,36 +30,101 @@ import {userSlice} from "./userSlice"
 
 //data will be from https://jsonplaceholder.typicode.com/users
 // need to install axious to get the json data: npm i axios
-export const fetсhUsers = () =>{
-        //dispatch нужного типа
-    return async function (dispatch:AppDispatch){
-         
-        try {
-            //Slice создает сам action creators, мы можем сразу их задиспатчить
-            //то есть не нужно создавать типы, сразу подаем функции из редюсера
-            // но через слово actions:
-            dispatch(userSlice.actions.usersFetching()) //это попытка сбора данных
+    // export const fetсhUsers = () =>{
+    //         //dispatch нужного типа
+    //     return async function (dispatch:AppDispatch){
+            
+    //         try {
+    //             //Slice создает сам action creators, мы можем сразу их задиспатчить
+    //             //то есть не нужно создавать типы, сразу подаем функции из редюсера
+    //             // но через слово actions:
+    //             dispatch(userSlice.actions.usersFetching()) //это попытка сбора данных
 
-            //get will have type: <IUser[]>, будем получать массив пользователей
-            const response = await axios.get<IUser[]>('https://jsonplaceholder.typicode.com/users')
+    //             //get will have type: <IUser[]>, будем получать массив пользователей
+    //             const response = await axios.get<IUser[]>('https://jsonplaceholder.typicode.com/users')
+            
+    //             //при успешном сборе данныx
+    //             setTimeout( // made a small delay
+    //                 ()=>{
+    //                     dispatch(userSlice.actions.usersFetchingSuccess(response.data))  //обработка данных при их успешном поступлении
+    //                 },
+    //                 500
+    //             )
+                
+    //         } catch(e:any) {// e can not accept unknown, Error, so I used any
+    //                 //error has the internal message
+    //             dispatch(userSlice.actions.usersFetchingError(e.message)) //error
+                
+    //         }
+    //     }
         
-            //при успешном сборе данныx
-            setTimeout( // made a small delay
-                ()=>{
-                    dispatch(userSlice.actions.usersFetchingSuccess(response.data))  //обработка данных при их успешном поступлении
-                },
-                500
-            )
-            
-        } catch(e:any) {// e can not accept unknown, Error, so I used any
-                //error has the internal message
-            dispatch(userSlice.actions.usersFetchingError(e.message)) //error
-            
-        }
-    }
-    
-}
+    // }
 
 //16:55: redux toolkit refactoring the 3 scenarios
 
 
+/* 
+    In redux toolkit there is a new approach to writing 
+    REDUX THUNK: функция надстройка - createAsyncThunk
+*/
+
+/*
+    createAsyncThunk() in Redux Toolkit
+
+    createAsyncThunk is a utility function provided by Redux Toolkit (RTK) to simplify 
+    the process of handling asynchronous logic, such as API calls, within Redux actions. 
+    It abstracts away some of the boilerplate associated with setting up asynchronous actions and reducers. 
+    It's essentially a higher-level API that improves 
+    the development experience when working with asynchronous actions
+
+    import { createAsyncThunk } from '@reduxjs/toolkit';
+
+    const fetchUserData = createAsyncThunk(
+    'user/fetchData',           // Action type string
+    async (userId, thunkAPI) => { // Payload creator function
+        const response = await fetch(`/api/user/${userId}`);
+        return response.json();   // Return the result, which will be automatically dispatched
+    }
+    );
+*/
+import {createAsyncThunk} from '@reduxjs/toolkit'
+
+
+//need to write actions in the related slice
+export const fetchUsers = createAsyncThunk(
+    'user/fetchAll', //action.type string
+    async(_, thunkAPI) =>{ // Payload creator function
+        try {
+            const response = await axios.get<IUser[]>('https://jsonplaceholder.typicode.com/users')
+            return response.data;   // Return the result, which will be automatically dispatched
+        } catch (error:any) {
+            //when there is error, call thunkAPI with rejectWithValue
+            return thunkAPI.rejectWithValue('Failed to find the data')
+        }
+    }
+)
+
+/*
+    Here’s what’s happening:
+
+        createAsyncThunk() takes two arguments:
+            Action type prefix: The base action name (used for auto-generated action types).
+            Payload creator function: An async function that performs the asynchronous task (e.g., fetching data from an API). 
+            This function is expected to return a promise that resolves to the data you want to store in the Redux state.
+
+    The above code automatically generates a set of action types that are used to track the status of the asynchronous operation:
+
+        user/fetchData/pending: Dispatched when the async operation starts.
+        user/fetchData/fulfilled: Dispatched when the async operation is successful and the data is available.
+        user/fetchData/rejected: Dispatched if the async operation fails.
+
+
+
+        Once you define the async thunk, you can integrate it into the extraReducers section of a slice. 
+        Redux Toolkit automatically handles the action types generated by createAsyncThunk 
+        and helps manage state transitions based on those action types.
+
+        We need to add it to ourUserSlice
+*/
+
+//20;00, redux thunk introduced. Next one is RTK query
