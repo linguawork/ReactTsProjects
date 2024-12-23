@@ -64,4 +64,6 @@ export const fetсhUsers = () =>{
     
 }
 
+//16:55: redux toolkit refactoring the 3 scenarios
+
 
