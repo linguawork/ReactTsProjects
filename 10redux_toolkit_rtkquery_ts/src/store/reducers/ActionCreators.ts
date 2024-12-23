@@ -1,6 +1,7 @@
 import { IUser } from "../../types/IUser"
 import { AppDispatch } from "../store"
 import axios from 'axios'
+import {userSlice} from "./userSlice"
 
 
 /*
@@ -34,15 +35,33 @@ import axios from 'axios'
 //data will be from https://jsonplaceholder.typicode.com/users
 // need to install axious to get the json data: npm i axios
 export const fetсhUsers = () =>{
-    
+        //dispatch нужного типа
     return async function (dispatch:AppDispatch){
-
+         
         try {
+            //Slice создает сам action creators, мы можем сразу их задиспатчить
+            //то есть не нужно создавать типы, сразу подаем функции из редюсера
+            // но через слово actions:
+            dispatch(userSlice.actions.usersFetching()) //это попытка сбора данных
+
             //get will have type: <IUser[]>, будем получать массив пользователей
-            const response = await axios.get<IUser[]>("https://jsonplaceholder.typicode.com/users",
-        } catch (e) {
+            const response = await axios.get<IUser[]>('https://jsonplaceholder.typicode.com/users')
+        
+            //при успешном сборе данныx
+            setTimeout( // made a small delay
+                ()=>{
+                    dispatch(userSlice.actions.usersFetchingSuccess(response.data))  //обработка данных при их успешном поступлении
+                },
+                500
+            )
+            
+        } catch(e:any) {// e can not accept unknown, Error, so I used any
+                //error has the internal message
+            dispatch(userSlice.actions.usersFetchingError(e.message)) //error
             
         }
     }
     
 }
+
+

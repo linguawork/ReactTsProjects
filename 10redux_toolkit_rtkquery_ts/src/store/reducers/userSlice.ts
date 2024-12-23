@@ -89,7 +89,7 @@ A slice in Redux Toolkit is a way to define a part of the Redux state, along wit
 
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { IUser } from "../../types/IUser";
-import { act } from "react";
+
 
 
 interface UserState {
