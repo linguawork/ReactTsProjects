@@ -17,6 +17,7 @@
 
 
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react"
+import { IPost } from "../types/IPost"
 /*
     createApi(): The core of RTK Query's functionality. 
     It allows you to define a set of "endpoints" that describe 
@@ -39,8 +40,8 @@ export const postAPI = createApi(
             By setting a custom reducerPath, 
             you define the namespace for the part of the 
             Redux store that will be dedicated to RTK Query’s
-             API slice. If you don’t specify a reducerPath, 
-             RTK Query will use the default value "api".
+            API slice. If you don’t specify a reducerPath, 
+            RTK Query will use the default value "api".
         */
 
         reducerPath: 'postAPI',
@@ -74,17 +75,25 @@ export const postAPI = createApi(
         endpoints: (build)=>({
             //пишем функцию как ключ а значением будет объект build (на выбор:
             //query (get) - запрос, mutation (post, put) - изменение)
-            fetchAllPosts: build.query(
+
+            //типизируем запрос дженериком <будет массив и номер>
+            fetchAllPosts: build.query<IPost[], number>(
                 {
-                    //function that returns an object, оборачиваем в круглые скобки
-                    query: ()=> ({ //press ctrl+space to see options to add
+                    // function that returns an object, оборачиваем в круглые скобки
+                    // подаем лимит в query, запрос по 5 штук
+                    query: (limit:number = 5)=> ({ //press ctrl+space to see options to add
                         //what we can add to the link, use backticks
-                        url: `/posts`
+                        url: `/posts`, 
+                        //запрос по 5 штук
+                        params: {
+                            _limit: limit // если вставить в строку: ?_limit=5
+                            // то получим по 5 штук
+                        }
                     }) 
                 }
             )
         })  
     }
 )
-//Pause at 22:00
+//Pause at 23:00
 

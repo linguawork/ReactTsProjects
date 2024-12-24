@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 //так как экспорт был дефолтный то можно изменять имена при импорте
 import  userReducer  from "./reducers/userSlice"; //importing without curly braces
+import { postAPI } from "../services/PostService";
 
 /*
     В ReduxToolkit уже необязательно использовать rootReducer
@@ -9,7 +10,12 @@ import  userReducer  from "./reducers/userSlice"; //importing without curly brac
 */
 const rootReducer = combineReducers(
     {
-        userReducer
+        userReducer, 
+        //1
+        //adding reducer from RTK query in array(it is a key):[postAPI.reducerPath]:
+        [postAPI.reducerPath]: postAPI.reducer
+        // postAPI.reducer is a value to the key
+
     }
 )
 
@@ -26,7 +32,13 @@ export const setupStore = () =>{
         //Ctrl+space inside obj 
         {
             //key: value, раньше просто писали rootReducer
-            reducer: rootReducer
+            reducer: rootReducer, 
+
+            //2 подключение middleware через стрелочную функцию 
+            middleware: (getDefaultMiddleware ) =>{
+                getDefaultMiddleware().concat(postAPI.middleware) 
+                //middleware автоматически добавлен в RTK query, мы его таким образом подключаем
+            }
         }
     )
 }
