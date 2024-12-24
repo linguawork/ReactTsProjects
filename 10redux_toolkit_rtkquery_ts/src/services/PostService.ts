@@ -75,18 +75,16 @@ export const postAPI = createApi(
             //пишем функцию как ключ а значением будет объект build (на выбор:
             //query (get) - запрос, mutation (post, put) - изменение)
             fetchAllPosts: build.query(
-            {
-                //function that returns an object, оборачиваем в круглые скобки
-                query: ()=> ({ //press ctrl+space to see options to add
-                    //what we can add to the link, use backticks
-                    url: `/posts`
-                }) 
-            }
-
+                {
+                    //function that returns an object, оборачиваем в круглые скобки
+                    query: ()=> ({ //press ctrl+space to see options to add
+                        //what we can add to the link, use backticks
+                        url: `/posts`
+                    }) 
+                }
             )
-
-        })
-        
+        })  
     }
 )
+//Pause at 22:00
 
